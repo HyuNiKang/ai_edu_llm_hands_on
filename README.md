@@ -26,3 +26,4 @@
   - 밑바닥부터 만들면서 배우는 LLM(llm from scratch 한글 번역본)
     - 코드: [https://github.com/rickiepark/llm-from-scratch]
     - 강의: [https://youtu.be/R80Gfde4cpg?list=PLJN246lAkhQhgakhcxz-5GwG_NYuJgSv1]
+  
