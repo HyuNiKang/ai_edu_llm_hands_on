@@ -452,8 +452,11 @@ def evaluate_model(model, train_loader, val_loader, device, eval_iter):
 # ==========================================
 def download_model(file_name, model_path):
     url = f"https://huggingface.co/rasbt/gpt2-from-scratch-pytorch/resolve/main/{file_name}"
-
+    print(f'Get URL {url}')
     if not os.path.exists(model_path):
+        dirname = os.path.dirname(model_path)
+        os.makedirs(dirname, exist_ok=True)
+        print(f'Call make dirs {dirname}')
         response = requests.get(url, timeout=60)
         response.raise_for_status()
         with open(model_path, "wb") as f:
@@ -465,6 +468,7 @@ def load_gpt2_model(file_name, config, device="cpu"):
     GPT2 가중치를 다운로드하고 모델에 로드하는 함수
     """
     model_path = f"./models/gpt2/{file_name}"
+
     download_model(file_name, model_path)
     # 3. 모델 초기화 및 가중치 로드
     model = GPTModel(config)
